@@ -17,7 +17,7 @@ function computerPlay() {
 
 let playerChoice = prompt("Type your choice: ").toLowerCase();
 let computerChoice = computerPlay();
-console.log(playRound(playerChoice, computerChoice));
+// console.log(playRound(playerChoice, computerChoice));
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection==='rock' && computerSelection==='scissors') {
@@ -42,3 +42,11 @@ function playRound(playerSelection, computerSelection) {
         return "Invalid input"
     }
 }
+
+function game(playerChoice, computerChoice){
+    for (let i = 0; i < 5; i++){
+    
+    }
+}
+
+console.log(game(playerChoice,computerChoice));
