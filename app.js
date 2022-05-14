@@ -44,9 +44,14 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game(playerChoice, computerChoice){
-    for (let i = 0; i < 5; i++){
-    
-    }
+    for (let i = 0; i < 5; i++) {
+        let x[i] = playRound(playerChoice, computerChoice);
+        console.log(x);
+     }
 }
 
-console.log(game(playerChoice,computerChoice));
+function score() {
+
+}
+
+game(playerChoice, computerChoice);
