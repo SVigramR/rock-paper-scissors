@@ -10,7 +10,7 @@ function computerPlay() {
 
 let playerChoice = prompt("Type your choice: ").toLowerCase();
 let computerChoice = computerPlay();
-console.log(playRound(playerChoice, computerChoice));
+// console.log(playRound(playerChoice, computerChoice));
 
 function playRound(playerSelection, computerSelection) {
     let choices = playerSelection + computerSelection;
@@ -18,17 +18,17 @@ function playRound(playerSelection, computerSelection) {
         case "rockscissors":
         case "paperrock":
         case "scissorspaper":
-            return "win";
+            win();
             break;
         case "scissorsrock":
         case "rockpaper":
         case "paperscissors":
-            return "lose";
+            lose();
             break;
         case "paperpaper":
         case "rockrock":
         case "scissorsscissors":
-            return "draw";
+            draw();
             break;
         default:
             return "Invalid Input"
