@@ -30,6 +30,15 @@ function playRound(playerSelection, computerSelection) {
             result = "draw";
             break;
     }
-    return result ;
-}
 
+
+    if (result === "win") {
+        return `You Win! ${playerSelection} beats ${computerSelection}`;
+    } else if (result === "lose") {
+        return `You Lose! ${computerSelection} beats ${playerSelection}`;
+    } else if (result === "draw") {
+        return "It's a Draw";
+    } else {
+        return "Invalid Input";
+    }
+}
