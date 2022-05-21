@@ -31,7 +31,6 @@ function playRound(playerSelection, computerSelection) {
             break;
     }
 
-
     if (result === "win") {
         return `You Win! ${playerSelection} beats ${computerSelection}`;
     } else if (result === "lose") {
@@ -41,4 +40,15 @@ function playRound(playerSelection, computerSelection) {
     } else {
         return "Invalid Input";
     }
+}
+
+function game(playerChoice) {
+    let playerSelection = prompt("Type your choice: ").toLowerCase();
+    let computerSelection = computerPlay();
+
+    let totalRound = playRound(playerSelection, computerSelection);
+}
+
+function getPlayerSelect(playerInput) {
+    
 }
