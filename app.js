@@ -62,7 +62,6 @@ function game() {
             draw++;
         }
 
-    let totalRound = playRound(playerSelection, computerSelection);
         if (compScore === 3 || playerScore === 3){
             break
         }
