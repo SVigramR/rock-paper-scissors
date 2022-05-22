@@ -1,4 +1,6 @@
 console.log("Rock-Paper-Scissors");
+let playerChoice;
+let computerChoice;
 
 function computerPlay() {
     const choices = ['rock', 'paper', 'scissors'];
@@ -6,9 +8,7 @@ function computerPlay() {
     return choices[randomChoice];
 }
 
-let playerChoice = prompt("Type your choice: ").toLowerCase();
-let computerChoice = computerPlay();
-console.log(playRound(playerChoice, computerChoice));
+
 
 function playRound(playerSelection, computerSelection) {
     let choices = playerSelection + computerSelection;
@@ -42,13 +42,40 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game(playerChoice) {
-    let playerSelection = prompt("Type your choice: ").toLowerCase();
-    let computerSelection = computerPlay();
+function game() {
+    let compScore = 0;
+    let playerScore = 0;
+    let draw = 0;
+
+    for (let i = 0; i < 5; i++) {
+        playerChoice = prompt("Type your Choice: ");
+        computerChoice = computerPlay();
+
+        let round = playRound(playerChoice, computerChoice);
+        console.log(round);
+
+        if (round.includes("Win")){
+            playerScore++;
+        } else if (round.includes("Lose")) {
+            compScore++;
+        } else {
+            draw++;
+        }
 
     let totalRound = playRound(playerSelection, computerSelection);
+        if (compScore === 3 || playerScore === 3){
+            break
+        }
+    }
+
+    if (playerScore > compScore) {
+        console.log("Hurray! Player Won.");
+    } else if (playerScore < compScore) {
+        console.log("Computer Won, Don't Lose Hope.");
+    } else if (playerScore === compScore) {
+        console.log("DRAW");
+    }
+    return;
 }
 
-function getPlayerSelect(playerInput) {
-    
-}
+game();
