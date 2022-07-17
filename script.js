@@ -21,44 +21,72 @@ function computerPlay() {
     return choices[randomChoice];
 }
 
+
+
 function playRound(playerSelection) {
-    let choices = playerSelection + computerPlay();
+    let computerSelection = computerPlay();
+    let choices = playerSelection + computerSelection;
     let result = ''
     switch (choices) {
         case "rockscissors":
         case "paperrock":
         case "scissorspaper":
             result = "win";
-            playerScore++;
             break;
         case "scissorsrock":
         case "rockpaper":
         case "paperscissors":
             result = "lose";
-            computerScore++;
             break;
         case "paperpaper":
         case "rockrock":
         case "scissorsscissors":
             result = "draw";
-            draw++;
             break;
     }
 
     console.log(result);
     console.log(playerScore, computerScore, draw);
+    if (result === "win") {
+        playerScore++;
+        resultDiv.textContent = `You Win! ${playerSelection} beats ${computerSelection}`;
+    } else if (result === "lose") {
+        computerScore++;
+        resultDiv.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
+    } else {
+        draw++;
+        resultDiv.textContent = "It's a Draw!"
+    }
+
+    userScore.textContent = playerScore;
+    compScore.textContent = computerScore;
+
+    if (playerScore === 5) {
+        resultDiv.textContent = "Hurray! Player Won.";
+    } else if (computerScore === 5) {
+        resultDiv.textContent = "Computer Won, Don't Lose Hope.";
+    }
 }
 
-function game() {
-    rock.addEventListener('click', function(){
-        playRound('rock');
-    });
-    paper.addEventListener('click', function(){
-        playRound('paper');
-    });
-    scissors.addEventListener('click', function(){
-        playRound('scissors');
-    });
-}
+rock.addEventListener('click', function () {
+    playRound('rock');
+});
+paper.addEventListener('click', function () {
+    playRound('paper');
+});
+scissors.addEventListener('click', function () {
+    playRound('scissors');
+});
 
-game();
+// function rmEventListener() {
+//     rock.removeEventListener('click', function () {
+//         playRound('rock');
+//     });
+//     paper.removeEventListener('click', function () {
+//         playRound('paper');
+//     });
+//     scissors.removeEventListener('click', function () {
+//         playRound('scissors');
+//     });
+// }
+
