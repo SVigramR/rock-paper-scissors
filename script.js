@@ -1,6 +1,19 @@
 console.log("Rock-Paper-Scissors");
-// let playerChoice;
-// let computerChoice;
+let playerScore = 0;
+let computerScore = 0;
+let draw = 0;
+
+// Selecting scoreboard
+const userScore = document.querySelector('#player-score');
+const compScore = document.querySelector('#computer-score');
+
+// selecting user buttons
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+
+// Showing result
+const resultDiv = document.querySelector('.result');
 
 function computerPlay() {
     const choices = ['rock', 'paper', 'scissors'];
@@ -8,83 +21,44 @@ function computerPlay() {
     return choices[randomChoice];
 }
 
-
-function playerChoice(){
-    let btn = document.querySelectorAll('.btn');
-    btn.forEach(bt => bt.addEventListener('click', () => {
-        bt.getAttribute('id');
-        return;
-    } ));
-    
-    return;
-}
-
-function playRound(playerSelection, computerSelection) {
-    let choices = playerSelection + computerSelection;
+function playRound(playerSelection) {
+    let choices = playerSelection + computerPlay();
     let result = ''
     switch (choices) {
         case "rockscissors":
         case "paperrock":
         case "scissorspaper":
             result = "win";
+            playerScore++;
             break;
         case "scissorsrock":
         case "rockpaper":
         case "paperscissors":
             result = "lose";
+            computerScore++;
             break;
         case "paperpaper":
         case "rockrock":
         case "scissorsscissors":
             result = "draw";
+            draw++;
             break;
     }
 
-    if (result === "win") {
-        return `You Win! ${playerSelection} beats ${computerSelection}`;
-    } else if (result === "lose") {
-        return `You Lose! ${computerSelection} beats ${playerSelection}`;
-    } else if (result === "draw") {
-        return "It's a Draw";
-    } else {
-        return "Invalid Input";
-    }
+    console.log(result);
+    console.log(playerScore, computerScore, draw);
 }
 
 function game() {
-    let compScore = 0;
-    let playerScore = 0;
-    let draw = 0;
-
-    playerSelect = playerChoice();
-    // for (let i = 0; i < 100; i++) {
-        
-        computerSelect = computerPlay();
-
-        let round = playRound(playerSelect, computerSelect);
-        console.log(round);
-
-        if (round.includes("Win")){
-            playerScore++;
-        } else if (round.includes("Lose")) {
-            compScore++;
-        } else {
-            draw++;
-        }
-
-    //     if (compScore === 3 || playerScore === 3){
-    //         break
-    //     }
-    // }
-
-    if (playerScore > compScore) {
-        console.log("Hurray! Player Won.");
-    } else if (playerScore < compScore) {
-        console.log("Computer Won, Don't Lose Hope.");
-    } else if (playerScore === compScore) {
-        console.log("DRAW");
-    }
-    return;
+    rock.addEventListener('click', function(){
+        playRound('rock');
+    });
+    paper.addEventListener('click', function(){
+        playRound('paper');
+    });
+    scissors.addEventListener('click', function(){
+        playRound('scissors');
+    });
 }
 
 game();
