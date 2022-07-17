@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: green;
+    font-family: sans-serif;
+    font-weight: bolder;
+}
+
+.header {
+    background-color: black;
+    text-align: center; 
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+div.scoreboard {
+    padding: 1rem;
+    font-size: 15rem;
+    justify-content: space-evenly;
+}
+
+/* Button section */
+div.btns {
+    justify-content: space-evenly;
+}
+
+.btn {
+    margin: 1rem;
+    font-size: 1rem;
+    padding: 1rem;
+    width: 10rem;
+    border: .3rem solid green;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+.result {
+    text-align: center;
+    font-size: 2rem;
+    padding-bottom: 3rem;
+}
+
+/* Utilities */
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .bold {
+    font-weight: bolder;
+} */

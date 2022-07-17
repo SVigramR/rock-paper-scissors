@@ -1,6 +1,6 @@
 console.log("Rock-Paper-Scissors");
-let playerChoice;
-let computerChoice;
+// let playerChoice;
+// let computerChoice;
 
 function computerPlay() {
     const choices = ['rock', 'paper', 'scissors'];
@@ -9,6 +9,15 @@ function computerPlay() {
 }
 
 
+function playerChoice(){
+    let btn = document.querySelectorAll('.btn');
+    btn.forEach(bt => bt.addEventListener('click', () => {
+        bt.getAttribute('id');
+        return;
+    } ));
+    
+    return;
+}
 
 function playRound(playerSelection, computerSelection) {
     let choices = playerSelection + computerSelection;
@@ -47,11 +56,12 @@ function game() {
     let playerScore = 0;
     let draw = 0;
 
-    for (let i = 0; i < 5; i++) {
-        playerChoice = prompt("Type your Choice: ");
-        computerChoice = computerPlay();
+    playerSelect = playerChoice();
+    // for (let i = 0; i < 100; i++) {
+        
+        computerSelect = computerPlay();
 
-        let round = playRound(playerChoice, computerChoice);
+        let round = playRound(playerSelect, computerSelect);
         console.log(round);
 
         if (round.includes("Win")){
@@ -62,10 +72,10 @@ function game() {
             draw++;
         }
 
-        if (compScore === 3 || playerScore === 3){
-            break
-        }
-    }
+    //     if (compScore === 3 || playerScore === 3){
+    //         break
+    //     }
+    // }
 
     if (playerScore > compScore) {
         console.log("Hurray! Player Won.");
