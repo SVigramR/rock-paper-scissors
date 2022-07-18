@@ -12,7 +12,7 @@ const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 
-// Showing result
+// Selecting result
 const resultDiv = document.querySelector('.result');
 
 function computerPlay() {
@@ -55,6 +55,7 @@ function playRound(playerSelection) {
             rock.setAttribute("disabled", 1);
             paper.setAttribute("disabled", 1);
             scissors.setAttribute("disabled", 1);
+            restart.removeAttribute('style', "invisibility")
         }
     } else if (result === "lose") {
         computerScore++;
@@ -64,6 +65,7 @@ function playRound(playerSelection) {
             rock.setAttribute("disabled", 1);
             paper.setAttribute("disabled", 1);
             scissors.setAttribute("disabled", 1);
+            restart.removeAttribute('style', "invisibility")
         }
     } else {
         draw++;
@@ -73,6 +75,18 @@ function playRound(playerSelection) {
     userScore.textContent = playerScore;
     compScore.textContent = computerScore;
 
+}
+
+function restartGame() {
+    const uScore = 0
+    const cScore = 0
+    
+    uScore.textContent = playerScore;
+    cScore.textContent = computerScore;
+
+    rock.removeAttribute("disabled");
+    paper.removeAttribute("disabled");
+    scissors.removeAttribute("disabled");
 }
 
 rock.addEventListener('click', function () {
