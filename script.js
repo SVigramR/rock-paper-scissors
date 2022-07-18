@@ -21,8 +21,6 @@ function computerPlay() {
     return choices[randomChoice];
 }
 
-
-
 function playRound(playerSelection) {
     let computerSelection = computerPlay();
     let choices = playerSelection + computerSelection;
@@ -54,9 +52,7 @@ function playRound(playerSelection) {
             resultDiv.textContent = "Hurray! Player Won.";
             rock.setAttribute("disabled", 1);
             paper.setAttribute("disabled", 1);
-            scissors.setAttribute("disabled", 1);
-            restart.removeAttribute('style', "invisibility")
-        }
+            scissors.setAttribute("disabled", 1);        }
     } else if (result === "lose") {
         computerScore++;
         resultDiv.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
@@ -65,7 +61,6 @@ function playRound(playerSelection) {
             rock.setAttribute("disabled", 1);
             paper.setAttribute("disabled", 1);
             scissors.setAttribute("disabled", 1);
-            restart.removeAttribute('style', "invisibility")
         }
     } else {
         draw++;
@@ -78,11 +73,12 @@ function playRound(playerSelection) {
 }
 
 function restartGame() {
-    const uScore = 0
-    const cScore = 0
+    playerScore = 0;
+    computerScore = 0;
     
-    uScore.textContent = playerScore;
-    cScore.textContent = computerScore;
+    userScore.textContent = playerScore;
+    compScore.textContent = computerScore;
+    resultDiv.textContent = "CLick to Start!!!";
 
     rock.removeAttribute("disabled");
     paper.removeAttribute("disabled");
