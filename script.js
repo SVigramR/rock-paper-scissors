@@ -50,9 +50,21 @@ function playRound(playerSelection) {
     if (result === "win") {
         playerScore++;
         resultDiv.textContent = `You Win! ${playerSelection} beats ${computerSelection}`;
+        if (playerScore === 5) {
+            resultDiv.textContent = "Hurray! Player Won.";
+            rock.setAttribute("disabled", 1);
+            paper.setAttribute("disabled", 1);
+            scissors.setAttribute("disabled", 1);
+        }
     } else if (result === "lose") {
         computerScore++;
         resultDiv.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
+        if (computerScore === 5) {
+            resultDiv.textContent = "Computer Won, Don't Lose Hope.";
+            rock.setAttribute("disabled", 1);
+            paper.setAttribute("disabled", 1);
+            scissors.setAttribute("disabled", 1);
+        }
     } else {
         draw++;
         resultDiv.textContent = "It's a Draw!"
@@ -61,11 +73,6 @@ function playRound(playerSelection) {
     userScore.textContent = playerScore;
     compScore.textContent = computerScore;
 
-    if (playerScore === 5) {
-        resultDiv.textContent = "Hurray! Player Won.";
-    } else if (computerScore === 5) {
-        resultDiv.textContent = "Computer Won, Don't Lose Hope.";
-    }
 }
 
 rock.addEventListener('click', function () {
@@ -77,16 +84,3 @@ paper.addEventListener('click', function () {
 scissors.addEventListener('click', function () {
     playRound('scissors');
 });
-
-// function rmEventListener() {
-//     rock.removeEventListener('click', function () {
-//         playRound('rock');
-//     });
-//     paper.removeEventListener('click', function () {
-//         playRound('paper');
-//     });
-//     scissors.removeEventListener('click', function () {
-//         playRound('scissors');
-//     });
-// }
-
