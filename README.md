@@ -1,1 +1,2 @@
 # rock-paper-scissors
+Welcome to RPS game! This project is created in part of TOP curriculum. As a first project handling javascript DOM vut initially the game was designed for console and later the UI was added.
